@@ -13,7 +13,7 @@ import cs1c.SongEntry;
  * Tests the functionality of FHhashQPwFind.java.
  * Specifically checks for implementation of find() function to return an object associated with a given key input.
  *
- * @author Foothill College, Bita M [YOUR NAME HERE]
+ * @author Foothill College, Bita M, William Tsai
  */
 public class MyTunes 
 {
