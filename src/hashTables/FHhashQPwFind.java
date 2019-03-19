@@ -2,9 +2,19 @@ package hashTables;
 
 import java.util.*;
 
+/**
+ * FHhashQPwFind adds find functionality using a key
+ * @param <KeyType>
+ * @param <E>
+ */
 public class FHhashQPwFind<KeyType, E extends Comparable<KeyType> >
         extends FHhashQP<E>
 {
+    /**
+     * Returns the element that belongs to a certain key
+     * @param key
+     * @return
+     */
     public E find( KeyType key )
     {
         int index = findPosKey(key);
@@ -14,6 +24,11 @@ public class FHhashQPwFind<KeyType, E extends Comparable<KeyType> >
             throw new NoSuchElementException();
     }
 
+    /**
+     * Finds the position of an element based on its key
+     * @param key
+     * @return
+     */
     int findPosKey( KeyType key )
     {
         int kthOddNum = 1;
@@ -30,6 +45,11 @@ public class FHhashQPwFind<KeyType, E extends Comparable<KeyType> >
         return index;
     }
 
+    /**
+     * Finds an elements hash value based on its key
+     * @param key
+     * @return
+     */
     public int myHashKey( KeyType key)
     {
         int hashVal;

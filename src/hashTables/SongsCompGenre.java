@@ -7,8 +7,18 @@ public class SongsCompGenre implements Comparable<String>
 {
     ArrayList<SongEntry> list;
     String genre;
+
+    /**
+     * Prints out the list of elements
+     * @return
+     */
     public String toString() { return list.toString(); }
 
+    /**
+     * Constructor which sets the genre
+     * @param g
+     * @param e
+     */
     public SongsCompGenre(String g, SongEntry e)
     {
         genre = g;
@@ -16,6 +26,11 @@ public class SongsCompGenre implements Comparable<String>
         list.add(e);
     }
 
+    /**
+     * Compares the key values
+     * @param key
+     * @return
+     */
     public int compareTo(String key)
     {
         return genre.compareTo(key);
@@ -31,21 +46,37 @@ public class SongsCompGenre implements Comparable<String>
         return list.equals(rhs.list);
     }
 
+    /**
+     * Returns the hash code of the genre name
+     * @return
+     */
     public int hashCode()
     {
         return genre.hashCode();
     }
 
+    /**
+     * Adds a SongEntry element into the list
+     * @param e
+     */
     public void addSong(SongEntry e)
     {
         list.add(e);
     }
 
+    /**
+     * Getter method for the list of SongEntry
+     * @return
+     */
     public ArrayList<SongEntry> getData()
     {
         return list;
     }
 
+    /**
+     * Getter method for genre
+     * @return
+     */
     public String getName()
     {
         return genre;

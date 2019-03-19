@@ -3,12 +3,18 @@ package hashTables;
 import cs1c.*;
 import java.util.*;
 
+/**
+ * This class will create and populate two hash tables of type FHhashQPwFind class, one for each wrapper class
+ */
 public class TableGenerator
 {
     FHhashQPwFind<Integer, SongCompInt> tableOfIDs;
     FHhashQPwFind<String, SongsCompGenre> tableOfGenres;
     ArrayList<String> genreNames;
 
+    /**
+     * Default constructor
+     */
     public TableGenerator()
     {
         tableOfIDs = null;
@@ -16,6 +22,11 @@ public class TableGenerator
         genreNames = null;
     }
 
+    /**
+     * Populate a hash table based on SongCompInt
+     * @param allSongs
+     * @return
+     */
     FHhashQPwFind<Integer, SongCompInt> populateIDtable(SongEntry[] allSongs)
     {
         tableOfIDs = new FHhashQPwFind<Integer, SongCompInt>();
@@ -27,6 +38,11 @@ public class TableGenerator
         return tableOfIDs;
     }
 
+    /**
+     * Populate a hash table based on SongsCompGenre
+     * @param allSongs
+     * @return
+     */
     FHhashQPwFind<String, SongsCompGenre> populateGenreTable(SongEntry[] allSongs)
     {
         tableOfGenres = new FHhashQPwFind<String, SongsCompGenre>();
@@ -50,6 +66,10 @@ public class TableGenerator
         return tableOfGenres;
     }
 
+    /**
+     * Getter method for genrenames
+     * @return
+     */
     ArrayList<String> getGenreNames() { return genreNames; }
 
 }

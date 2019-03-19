@@ -1,8 +1,47 @@
-// TODO: For every project create a README file at the top-level directory of 
-//       your project. Your README must include a list of .java files you are 
-//       submitting and a brief description of each. You may ignore IDE specific 
-//       files such as .gitignore 
+project folder:
+wtsai89-cs1c-project07/
 
-// NOTE: Alternatively you can create this file in Markdown format. 
-//       See the tutorial:
-//       https://guides.github.com/features/mastering-markdown/
+
+Brief description of submitted files:
+
+src/cs1c/MillionSongDataSubset.java
+    - Parses the music json file into an array
+
+src/cs1c/SongEntry.java
+    - song object
+
+src/cs1c/TimeConverter.java
+    - Converts duration into a string representation.
+
+src/hashTables/FHhashQP.java
+    - Hash table which implements quadratic probing
+
+src/hashTables/FHhashQPwFind.java
+    - Extends the FhhashQP class and adds find functionality
+
+src/hashTables/HashEntry.java
+    - HashEntry class for use by FHhashQP
+
+src/hashTables/MyTunes.java
+    - Tests the functionality of FHhashQPwFind.java.
+
+src/hashTables/SongCompInt.java
+    - Wrapper class for a SongEntry object used to compare objects based on their ID field
+
+src/hashTables/SongsCompGenre.java
+    - Wrapper class for a SongEntry object used to compare objects based on their genre field
+
+src/hashTables/TableGenerator.java
+    - Creates and populates two hash tables of type FHhashQPwFind class, one for each wrapper class
+
+resources/findGenres.txt
+    - test file
+
+resources/findIDs.txt
+    - test file
+
+resources/music_genre_subset.json
+    - music json file
+
+resources/RUN.txt
+    - output of MyTunes' class

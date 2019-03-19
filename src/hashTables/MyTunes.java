@@ -21,11 +21,11 @@ public class MyTunes
 
 	// Two hash tables of type FHhashQPwFind which extends parent class FHhashQP --------
 
-	// TODO: Define the wrapper class SongCompInt for SongEntry objects,
+	//  Define the wrapper class SongCompInt for SongEntry objects,
 	//       which would compare SongEntry objects based on the song's int id field.
 	private FHhashQPwFind<Integer, SongCompInt>  tableOfSongIDs;
 
-	// TODO: Define the wrapper class SongCompGenre for SongEntry objects,
+	//  Define the wrapper class SongCompGenre for SongEntry objects,
 	//       which would compare SongEntry objects based on the String genre field and
 	//       determines the number of songs in each genre.
 	private FHhashQPwFind<String, SongsCompGenre> tableOfGenres; 
@@ -42,18 +42,18 @@ public class MyTunes
 	 */
 	public MyTunes(SongEntry[] allSongs)
 	{		
-		// TODO: Define the TableGenerator class to have two class fields of type
+		// Define the TableGenerator class to have two class fields of type
 		//       FHhashQPwFind which extend the parent class FHhashQP.
 		TableGenerator g = new TableGenerator();
 
-		// TODO: Populates a hash table for comparing songs based on their int field ID.
+		// Populates a hash table for comparing songs based on their int field ID.
 		tableOfSongIDs = g.populateIDtable(allSongs);
 
-		// TODO: Populates a hash table for comparing songs based on their String field genre.
+		// Populates a hash table for comparing songs based on their String field genre.
 		//       Uses this table to also populates list of genre names with unique keys.
 		tableOfGenres = g.populateGenreTable(allSongs);		
 
-		// TODO: Return the unique genre names found when populating genre table
+		// Return the unique genre names found when populating genre table
 		genreNames = g.getGenreNames();
 	}
 
@@ -143,7 +143,7 @@ public class MyTunes
 
 			try
 			{
-				// TODO: Define the wrapper class for a SongEntry object such that 
+				// Define the wrapper class for a SongEntry object such that
 				//       it compares objects based on a song's integer id field.
 				SongCompInt compResult  = tableOfSongIDs.find(id);
 				if (compResult != null)
@@ -173,7 +173,7 @@ public class MyTunes
 
 		for (String genreName : genreKeys)
 		{
-			// TODO: Define the wrapper class for a SongEntry object such that 
+			// Define the wrapper class for a SongEntry object such that
 			//       it compares objects based on the songs String genre field.
 			SongsCompGenre genre = tableOfGenres.find(genreName);
 
@@ -205,6 +205,13 @@ public class MyTunes
 		System.out.println("Done with testing table of genres.\n");
 	}
 
+	private void testFindGenre(String key)
+	{
+		System.out.printf("\nKey value: %s\n", key);
+		System.out.printf("myHashKey method output: %d\n", tableOfGenres.myHashKey(key));
+		System.out.printf("findPosKey method output: %d\n", tableOfGenres.findPosKey(key));
+	}
+
 
 	/**
 	 * Creates an object of type MyTunes class that, which reads the song information from a JSON input file
@@ -218,6 +225,7 @@ public class MyTunes
 		final String DATAFILE = "resources/music_genre_subset.json";	// Directory path for JSON file
 		final String TESTFILE01 = "resources/findIDs.txt";	// Example test file for hashing based on IDs
 		final String TESTFILE02 = "resources/findGenres.txt"; // Example test file for hashing based on genres names
+		final String FINDGENRE = "classic pop and rock";
 
 		// Note: This is similar to your previous projects.
 		//		 Placed in a separate method for readability.
@@ -232,6 +240,9 @@ public class MyTunes
 
 		// Tests FHhashQPwFind and SongsCompGenre
 		theStore.testGenreTable(TESTFILE02);
+
+		//Tests FHhashQPwFind class methods
+		theStore.testFindGenre(FINDGENRE);
 
 		// flush the error stream
 		System.err.flush();

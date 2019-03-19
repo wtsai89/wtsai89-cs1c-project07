@@ -19,6 +19,11 @@ public class FHhashQP<E>
     protected double mMaxLambda;
 
     // public methods ---------------------------------
+
+    /**
+     * Initializes a hash table of a specified table size
+     * @param tableSize
+     */
     public FHhashQP(int tableSize)
     {
         mLoadSize = mSize = 0;
@@ -31,6 +36,9 @@ public class FHhashQP<E>
         mMaxLambda = INIT_MAX_LAMBDA;
     }
 
+    /**
+     * Default constructor
+     */
     public FHhashQP()
     {
         this(INIT_TABLE_SIZE);
@@ -54,6 +62,11 @@ public class FHhashQP<E>
         return true;
     }
 
+    /**
+     * Removes an element from the hash table
+     * @param x
+     * @return
+     */
     public boolean remove( E x )
     {
         int bucket = findPos(x);
@@ -66,13 +79,25 @@ public class FHhashQP<E>
         return true;
     }
 
+    /**
+     * Checks if the hash table contains an element
+     * @param x
+     * @return
+     */
     public boolean contains(E x )
     {
         return mArray[findPos(x)].state == ACTIVE;
     }
 
+    /**
+     * Getter method for the size
+     * @return
+     */
     public int size()  { return mSize; }
 
+    /**
+     *Clears the hash table using lazy deletion
+     */
     void makeEmpty()
     {
         int k, size = mArray.length;
@@ -82,6 +107,11 @@ public class FHhashQP<E>
         mSize = mLoadSize = 0;
     }
 
+    /**
+     * Sets the max lambda
+     * @param lam
+     * @return
+     */
     public boolean setMaxLambda( double lam )
     {
         if (lam < .1 || lam > INIT_MAX_LAMBDA )
@@ -92,6 +122,11 @@ public class FHhashQP<E>
 
     // protected methods of class ----------------------
 
+    /**
+     * Finds the position of a specified element
+     * @param x
+     * @return
+     */
     int findPos( E x )
     {
         int kthOddNum = 1;
@@ -108,6 +143,9 @@ public class FHhashQP<E>
         return index;
     }
 
+    /**
+     * Rehashes the table
+     */
     protected void rehash()
     {
         // we save old list and size then we can reallocate freely
@@ -126,6 +164,11 @@ public class FHhashQP<E>
                 insert( oldArray[k].data );
     }
 
+    /**
+     * Returns the hash value for an element
+     * @param x
+     * @return
+     */
     protected int myHash(E x)
     {
         int hashVal;
@@ -137,6 +180,11 @@ public class FHhashQP<E>
         return hashVal;
     }
 
+    /**
+     * Calculates the next prime number
+     * @param n
+     * @return
+     */
     protected static int nextPrime(int n)
     {
         int k, candidate, loopLim;
@@ -169,6 +217,9 @@ public class FHhashQP<E>
         }
     }
 
+    /**
+     * Allocates a new array
+     */
     void allocateArray()
     {
         int k;
